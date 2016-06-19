@@ -1,28 +1,26 @@
-import java.util.Scanner;
 
-class Reverser {
-	String input;
-	String output;
+class Reverse {
+	private String input;
+	private String output;
 
-	public Reverser(String in) {
+	public Reverse(String in) {
 		input = in;
 	}
 
-	public String doRev() {
+	public String doReverse() {
 		int stackSize = input.length();
-		Stack theStack = new Stack(stackSize);
+		StackX stack = new StackX(stackSize);
 
-		Scanner in = new Scanner(System.in);
-
-		System.out.println("Enter word");
-		for (int i = 0; i < input.length(); i++) {
+		for (int i = 0; i < stackSize; i++) {
 			char ch = input.charAt(i);
-			theStack.push(ch);
+			stack.push(ch);
 		}
+
 		output = " ";
-		while (!theStack.isEmpty()) {
-			char ch = theStack.pop();
-			output = output + ch;
+
+		while (!stack.isEmpty()) {
+			char ch = stack.pop();
+			output += ch;
 		}
 		return output;
 	}

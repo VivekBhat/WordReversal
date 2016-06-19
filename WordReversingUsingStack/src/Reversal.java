@@ -1,27 +1,40 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Reversal {
+	public static void main(String[] args) {
+		String input, output, checkString;
+		Boolean check = true;
 
-	public static void main(String[] args) throws IOException {
-		String input, output;
-		while (true) {
-			System.out.println("Enter String: ");
-			input = getString();
-			if (input.equals(" ")) // quit if [Enter]
-				break;
-			Reverser theReverser = new Reverser(input);
-			output = theReverser.doRev(); // use it
-			System.out.println("Reversed: " + output);
+		Scanner in = new Scanner(System.in);
+
+		while (check) {
+			System.out.println(" Enter a String: ");
+			input = in.nextLine();
+			Reverse reverseObject = new Reverse(input);
+			output = reverseObject.doReverse();
+
+			System.out.println(" Reversed String is: " + output);
+			Boolean check2 = true;
+			while (check2) {
+				System.out.println(" Want another one Y/N: ");
+
+				checkString = in.nextLine();
+				switch (checkString) {
+				case "y":
+				case "Y":
+					check = true;
+					check2 = false;
+					break;
+				case "n":
+				case "N":
+					check = false;
+					check2 = false;
+					System.out.println("BYE ");
+					break;
+				default:
+					System.out.println("Invalid Input ");
+				}
+			}
 		}
-	}
-
-	public static String getString() throws IOException {
-
-		InputStreamReader isr = new InputStreamReader(System.in);
-		BufferedReader buf = new BufferedReader(isr);
-		String s = buf.readLine();
-		return s;
 	}
 }

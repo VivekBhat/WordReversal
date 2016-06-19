@@ -1,17 +1,16 @@
-class Stack {
+class StackX {
+	int top;
+	int maxSize;
+	char[] word;
 
-	private int maxSize;
-	private char[] word;
-	private int top;
-
-	public Stack(int max) {
+	public StackX(int max) {
 		maxSize = max;
-		word = new char[maxSize];
 		top = -1;
+		word = new char[maxSize];
 	}
 
-	public void push(char insert) {
-		word[++top] = insert;
+	public void push(char s) {
+		word[++top] = s;
 	}
 
 	public char pop() {
@@ -23,7 +22,6 @@ class Stack {
 	}
 
 	public boolean isEmpty() {
-		return top == -1;
+		return (top == -1);
 	}
-
 }
